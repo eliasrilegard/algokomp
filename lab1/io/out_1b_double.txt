@@ -1,0 +1,7 @@
+ 12 | 0 ms
+ 24 | 0 ms
+ 48 | 0 ms
+ 96 | 2101 ms
+
+ See out_1b_increment.txt
+

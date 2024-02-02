@@ -1,0 +1,60 @@
+ 93 | 1191 ms
+ 94 | 1334 ms
+ 95 | 1606 ms
+ 96 | 1924 ms
+ 97 | 2327 ms
+ 98 | 2818 ms
+ 99 | 3350 ms
+100 | 4037 ms
+101 | 4883 ms
+102 | 5840 ms
+
+
+Doubling the input from 93, 186 does not compute, even letting the program run for several minutes.
+Running a 2nd round, this time with --release flag enabled (a roughly 10x speed increase) on a
+longer run, we get the following:
+
+ 80 | 18 ms
+ 81 | 34 ms
+ 82 | 45 ms
+ 83 | 39 ms
+ 84 | 36 ms
+ 85 | 41 ms
+ 86 | 48 ms
+ 87 | 57 ms
+ 88 | 68 ms
+ 89 | 88 ms
+ 90 | 106 ms
+ 91 | 118 ms
+ 92 | 142 ms
+ 93 | 171 ms
+ 94 | 212 ms
+ 95 | 247 ms
+ 96 | 316 ms
+ 97 | 362 ms
+ 98 | 433 ms
+ 99 | 527 ms
+100 | 622 ms
+101 | 763 ms
+102 | 923 ms
+103 | 1080 ms
+104 | 1298 ms
+105 | 1560 ms
+106 | 1920 ms
+107 | 2273 ms
+108 | 2718 ms
+109 | 3267 ms
+110 | 3971 ms
+111 | 4734 ms
+112 | 5719 ms
+113 | 6882 ms
+114 | 8230 ms
+115 | 9913 ms
+116 | 11945 ms
+117 | 14339 ms
+118 | 17257 ms
+119 | 20812 ms
+120 | 25001 ms
+
+Comparing these runtimes, every increase of n yields almost precisely a ~20% longer runtime.
+Meaning it's pretty safe to say this function is Θ(1.2^x)
