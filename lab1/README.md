@@ -8,7 +8,7 @@ Read through the problem description there and make sure you understand what the
 for.
 
 A recurrence that describes the solution to the problem is the following:
-$$
+```math
 \text{Coins}(n) = \begin{cases}
    \infty &\text{if } n < 0 \\
    0 &\text{if } n = 0 \\
@@ -19,7 +19,7 @@ $$
       1 + \text{Coins}(n - c)
     ) &\text{otherwise}
 \end{cases}
-$$
+```
 
 **(a)** Write a direct recursive implementation (without any dynamic programming component) of this
 recurrence.
@@ -69,14 +69,14 @@ for.
 
 **(a)** A basic recurrence that can be used to compute the answer is to define, for integers
 $0 \leq x \leq n$ and $0 \leq y \leq k$,
-$$
+```math
 f(x,y) = \begin{cases}
   1.0 &\text{if } y = 0 \\
   0.0 &\text{if } x = 0 \text{ and } y > 0 \\
   p \cdot f(x - 1, y - 1) + (1 - p) \cdot f(x - 1, k)
     &\text{otherwise (if } x \geq 1 \text{ and } y \geq 1 \text{)}
 \end{cases}
-$$
+```
 The answer is then given by f(n, k).  Note that the second term in the above recurrence has k as
 the second argument, and not y (so the value of y is "reset" to k).
 
@@ -95,14 +95,14 @@ would be a reasonable estimate of the time complexity of your program?
 
 **(c)** Another recurrence that can be used to solve the problem is to define, for an integer
 $0 \leq x \leq n$,
-$$
+```math
 g(x) = \begin{cases}
   0.0 &\text{if } x < k \\
   p^k &\text{if } x = k \\
   g(x - 1) + p^k \cdot (1 - p) \cdot (1 - g(x - k - 1))
     &\text{otherwise (if } x \geq k + 1 \text{)}
 \end{cases}
-$$
+```
 The answer is then given by g(n).
 
 Implement this recurrence as a recursive algorithm and add memoization to turn it into a dynamic
@@ -145,7 +145,7 @@ induction on x that f(x, k) = g(x) for all x. This can be a little challenging, 
 about how to proceed:
     - It can be helpful to define an intermediate function h(x), which has the same base cases as
     g(x) but in the inductive case (when x >= k+1) is defined by
-    $h(x) = p^k + \sum_{i=1}^{k-1} (1 - p) \cdot p^i \cdot h(x - i - 1)$
+    $$h(x) = p^k + \sum_{i=1}^{k-1} (1 - p) \cdot p^i \cdot h(x - i - 1)$$
     - Prove that h(x) = f(x, k) for all x using induction.  This is conceptually not difficult but
     involves somewhat tedious calculations: we take the recursive definition of f(x, k) and expand
     it, getting terms involving f(x-1, k-1) and f(x-1, k).  For the terms of the form f(x-1, k) we
